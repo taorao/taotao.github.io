@@ -1,13 +1,221 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	<h1>
-		hello ,I am taotao.
-		<a href="1.html">Welcome to my Blog</a>
-	</h1>
-	</body>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href=" favicon.ico">
+  <link rel="stylesheet" href="css/toastr.min.css">
+  <title>玲玲电子商城后台</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="css/boostrap.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/ie10.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src=" assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="js/index.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body onload="onload()">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">后台管理系统</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#">设置</a>
+          </li>
+          <li>
+            <a href="#" id="user">用户</a>
+          </li>
+          <li>
+            <a href="#" onclick="logout()" id="logout-user"></a>
+          </li>
+          <li>
+            <a href="#">帮助</a>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" placeholder="Search...">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active">
+            <a href="#">系统介绍
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">用户列表</a>
+          </li>
+          <li>
+            <a href="#">商品管理</a>
+          </li>
+          <li>
+            <a href="#">用户积分管理</a>
+          </li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li>
+            <a href="">商品售出记录</a>
+          </li>
+          <li>
+            <a href="">系统盈利</a>
+          </li>
+          <li>
+            <a href="">用户签到记录</a>
+          </li>
+          <li>
+            <a href="">用户购买记录</a>
+          </li>
+          <li>
+            <a href="">收藏</a>
+          </li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li>
+            <a href="">管理员权限</a>
+          </li>
+          <li>
+            <a href="#" onclick="resginer()">管理员注册</a>
+          </li>
+          <li>
+            <a href="">授权记录</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Dashboard</h1>
+
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+              alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+              alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+              alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive"
+              alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+          </div>
+        </div>
+
+        <h2 class="sub-header">Section title</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>用户IDX</th>
+                <th>username</th>
+                <th>password</th>
+                <th>创建日期</th>
+                <th>更新日期</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1,001</td>
+                <td>Lorem</td>
+                <td>ipsum</td>
+                <td>dolor</td>
+                <td>sit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src=" assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3 bootstrap.min.js"></script>
+  <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+  <script src="js/2.js"></script>
+  <script src="js/toastr.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="js/3.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script>
+    function onload() {
+      toastr.options = { 
+        "timeOut": "3000", 
+        "preventDuplicates": true,
+        "preventManyTimes": true,
+        "positionClass": "toast-top-full-width",  
+        "hideDuration": "1" 
+      };
+      var username = sessionStorage.getItem("username");
+      if (!username) {
+        toastr.warning("尊敬的管理员,您尚未登录");
+        setTimeout(() => {
+          location.href = "./login.html"
+        }, 3000);
+      }else{
+        $("#user").html("欢迎管理员" + username);
+        $('#logon-user').html("退出登录")
+      }
+    }
+    function logout(){
+      sessionStorage.clear()
+      location.reload()
+    }
+    function resginer(){
+      var username = sessionStorage.getItem("username");
+      if (username) {
+        location.href = "./resginer.html"
+      }
+    }
+  </script>
+</body>
+
 </html>
